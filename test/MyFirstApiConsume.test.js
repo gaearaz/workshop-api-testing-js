@@ -32,33 +32,33 @@ describe('First Api Tests', () => {
       });
 
       it('Consume PATCH Service with query parameters', async () => {
-        const query = {
+        const requestBody = {
           name: 'John',
           age: '31',
           city: 'New York'
         };
       
-        const response = await agent.patch('https://httpbin.org/patch').query(query);
+        const response = await agent.patch('https://httpbin.org/patch').send(requestBody);
       
         expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.args).to.eql(query);
+        expect(response.body.json).to.eql(requestBody);
       });
 
       it('Consume PUT Service with query parameters', async () => {
-        const query = {
+        const requestBody = {
           name: 'John',
           age: '31',
           city: 'New York'
         };
       
-        const response = await agent.put('https://httpbin.org/put').query(query);
+        const response = await agent.put('https://httpbin.org/put').send(requestBody);
       
         expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.args).to.eql(query);
+        expect(response.body.json).to.eql(requestBody);
       });
       
       it('Consume DELETE Service', async () => {
-        const query = {
+        const requestBody = {
           name: 'John',
           age: '31',
           city: 'New York'
