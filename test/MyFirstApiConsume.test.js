@@ -67,7 +67,6 @@ describe('First Api Tests', () => {
         const response = await agent.delete('https://httpbin.org/delete');
       
         expect(response.status).to.equal(statusCode.OK);
-        // expect(response.body.args).to.eql(query);
       });
 
     });
